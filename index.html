@@ -11,12 +11,12 @@
             winner = "",
             loser = "";
         if ((playerSelection.toLowerCase() === "rock" && computerSelection === "Rock") ||
-            (playerSelection.toLowerCase() === "paper" && computerSelection === "Paper") ||
-            (playerSelection.toLowerCase() === "scissors" && computerSelection === "Scissors") ) {
+                (playerSelection.toLowerCase() === "paper" && computerSelection === "Paper") ||
+                (playerSelection.toLowerCase() === "scissors" && computerSelection === "Scissors") ) {
             result = "Draw";
         } else if ((playerSelection.toLowerCase() === "rock" && computerSelection === "Scissors") ||
-            (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") ||
-            (playerSelection.toLowerCase() === "scissors" && computerSelection === "Paper") ) {
+                (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") ||
+                (playerSelection.toLowerCase() === "scissors" && computerSelection === "Paper") ) {
             result = "Win";
             winner = toTitleCase(playerSelection);
             loser = computerSelection;
