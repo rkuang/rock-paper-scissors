@@ -1,54 +1,20 @@
-<script>
-    function computerPlay() {
-        let rng = Math.random() * 3;
-        if (rng < 1) return "Rock";
-        else if (rng < 2) return "Paper";
-        else return "Scissors";
-    }
-
-    function playRound(playerSelection, computerSelection) {
-        let result = "",
-            winner = "",
-            loser = "";
-        if ((playerSelection.toLowerCase() === "rock" && computerSelection === "Rock") ||
-                (playerSelection.toLowerCase() === "paper" && computerSelection === "Paper") ||
-                (playerSelection.toLowerCase() === "scissors" && computerSelection === "Scissors") ) {
-            result = "Draw";
-        } else if ((playerSelection.toLowerCase() === "rock" && computerSelection === "Scissors") ||
-                (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") ||
-                (playerSelection.toLowerCase() === "scissors" && computerSelection === "Paper") ) {
-            result = "Win";
-            winner = toTitleCase(playerSelection);
-            loser = computerSelection;
-        } else {
-            result = "Lose";
-            winner = computerSelection;
-            loser = toTitleCase(playerSelection);
-        }
-        return `You ${result}! ${result !== "Draw" ? `${winner} beats ${loser}.` : ''}`;
-    }
-
-    function toTitleCase(str) {
-        return str.replace(
-            /\w\S*/g,
-            function(txt) {
-                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-            }
-        );
-    }
-
-    function game() {
-        let input = "";
-        for (let i=0; i<5; i++) {
-            input = prompt("What's your move?");
-            if (input.toLowerCase() !== "rock" && input.toLowerCase() !== "paper" && input.toLowerCase() !== "scissors") {
-                alert("Invalid input. You must choose 'rock', 'paper', or 'scissors'. Try again.");
-                i--;
-                continue;
-            }
-            console.log(playRound(input, computerPlay()));
-        }
-    }
-
-    game();
-</script>
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:600">
+        <link rel="stylesheet" type="text/css" href="styles/styles.css"></link>
+    </head>
+    <body>
+        <div class="container">
+            <img class="player-move" draggable="false" id="rock" src="images/rock.png"/>
+            <img class="player-move" draggable="false" id="paper" src="images/paper.png"/>
+            <img class="player-move" draggable="false" id="scissors" src="images/scissors.png"/>
+            <div class="result display-none"></div>
+            <img id="computer-move" class="display-none" draggable="false" src="images/rock.png"/>
+        </div>
+        <div class="buttons display-none">
+            <a id="reset-btn" class="button">Reset</a>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
